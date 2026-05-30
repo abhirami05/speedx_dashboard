@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SpeedX Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-box {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            width: 350px;
+            text-align: center;
+        }
+        h1 { color: #667eea; margin-bottom: 30px; }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover { background: #5a67d8; }
+        .error { 
+            color: red; 
+            margin-top: 10px; 
+            display: none;
+            background: #ffe6e6;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .info {
+            background: #f0f4ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 13px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h1>SpeedX</h1>
+        <h3>Dashboard Login</h3>
+        
+        <!-- IMPORTANT: Form submits directly to login.php -->
+        <form action="login.php" method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        
+        <div id="loginError" class="error">
+            Invalid username or password!
+        </div>
+        
+        <div class="info">
+            <strong>Test Login:</strong><br>
+            Username: <b>admin</b><br>
+            Password: <b>123456</b>
+        </div>
+    </div>
+    <script>
+        if (new URLSearchParams(window.location.search).has('error')) {
+            document.getElementById('loginError').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
